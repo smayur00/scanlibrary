@@ -100,7 +100,19 @@ public class ScanFragment extends Fragment {
         Bitmap tempBitmap = ((BitmapDrawable) sourceImageView.getDrawable()).getBitmap();
         Map<Integer, PointF> pointFs = getEdgePoints(tempBitmap);
         polygonView.setPoints(pointFs);
-        polygonView.setVisibility(View.GONE);
+        // polygonView.setVisibility(View.GONE);
+        int preference = getArguments().getInt(ScanConstants.OPEN_INTENT_PREFERENCE, 0);
+        System.out.println("This is a test print!",preference);
+        System.out.println("This is a test print1!",ScanConstants.OPEN_INTENT_PREFERENCE);
+        Log.d("ScanFragment", "Scan Points: " + preference);
+  
+
+
+        if (preference == 1) {
+            polygonView.setVisibility(View.VISIBLE);
+        } else {
+            polygonView.setVisibility(View.GONE);
+        }
         int padding = (int) getResources().getDimension(R.dimen.scanPadding);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(tempBitmap.getWidth() + 2 * padding, tempBitmap.getHeight() + 2 * padding);
         layoutParams.gravity = Gravity.CENTER;
