@@ -101,7 +101,11 @@ public class ScanActivity extends Activity implements IScanner, ComponentCallbac
                 //         .setMessage(R.string.low_memory_message)
                 //         .create()
                 //         .show();
+
                 // break;
+
+            
+
             default:
                 /*
                   Release any non-critical data structures.
